@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | ポートフォリオ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #fcf9f2; /* 画用紙のような色 */
+            --text-color: #4a3e3d; /* クレヨンのような濃い茶色 */
+            --accent-pink: #e8a3a9;
+            --accent-blue: #95b8d1;
+            --accent-yellow: #f4d35e;
+            --accent-green: #a7c99e;
+        }
+
+        body {
+            font-family: "Yomogi", cursive;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+            background-image: url('data:image/svg+xml;utf8,<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.05"/></svg>');
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(180deg, var(--accent-yellow) 0%, transparent 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            display: inline-block;
+            position: relative;
+        }
+
+        /* クレヨン風の下線 */
+        h1::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            bottom: -5px;
+            width: calc(100% + 20px);
+            height: 10px;
+            background-color: var(--accent-pink);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            z-index: -1;
+            transform: rotate(-2deg);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding: 30px;
+            background-color: white;
+            /* 手書き風の枠線 */
+            border: 4px solid var(--text-color);
+            border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+            box-shadow: 5px 5px 0px var(--accent-blue);
+            transform: rotate(0.5deg);
+        }
+
+        section:nth-child(even) {
+            border-color: var(--text-color);
+            box-shadow: 5px 5px 0px var(--accent-green);
+            transform: rotate(-0.5deg);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            border-bottom: 3px dashed var(--accent-pink);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-yellow);
+            border-radius: 50%;
+            border: 3px solid var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin: 0 auto;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .work-item {
+            background-color: var(--bg-color);
+            padding: 15px;
+            border: 2px solid var(--text-color);
+            border-radius: 15px 255px 15px 255px / 255px 15px 255px 15px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .work-item:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .work-img-placeholder {
+            width: 100%;
+            height: 120px;
+            background-color: var(--accent-blue);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border: 2px solid var(--text-color);
+        }
+        
+        .work-item:nth-child(2) .work-img-placeholder {
+            background-color: var(--accent-pink);
+        }
+        .work-item:nth-child(3) .work-img-placeholder {
+            background-color: var(--accent-green);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+        }
+
+        ul li::before {
+            content: '🎨';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-decoration-style: wavy;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>わたしのポートフォリオ</h1>
+    </header>
+
+    <div class="container">
+        <!-- 自己紹介 -->
+        <section id="about">
+            <h2>自己紹介</h2>
+            <div class="about-content">
+                <div class="avatar">🖍️</div>
+                <div style="flex: 1; min-width: 250px;">
+                    <p>こんにちは！アートや絵本の世界が大好きなクリエイターです。<br>
+                    アクリル絵の具やクレヨンを使った、素朴であたたかい表現が得意です。<br>
+                    日常のちょっとした「ふふっ」となる瞬間を切り取って作品にしています。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 作品・実績 -->
+        <section id="works">
+            <h2>作品・実績</h2>
+            <p style="text-align: center;">これまでのお仕事や、個人的な制作物です。</p>
+            <div class="works-grid">
+                <div class="work-item">
+                    <div class="work-img-placeholder">絵本の挿絵</div>
+                    <h3>○○の絵本</h3>
+                    <p>アクリル絵の具で描いた、森の動物たちの物語。</p>
+                </div>
+                <div class="work-item">
+                    <div class="work-img-placeholder">個展のメインビジュアル</div>
+                    <h3>春の展示会</h3>
+                    <p>クレヨンの質感を活かしたポスターデザイン。</p>
+                </div>
+                <div class="work-item">
+                    <div class="work-img-placeholder">グッズデザイン</div>
+                    <h3>オリジナルポストカード</h3>
+                    <p>温かみのある風合いの紙に印刷しました。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 連絡先 -->
+        <section id="contact">
+            <h2>連絡先</h2>
+            <p>お仕事のご相談や、作品のご感想などお気軽にどうぞ！</p>
+            <ul>
+                <li>Email: <a href="mailto:info@example.com">info@example.com</a></li>
+                <li>Twitter(X): <a href="#">@your_account</a></li>
+                <li>Instagram: <a href="#">@your_gallery</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Portfolio. 手描きのぬくもりを大切に。</p>
+    </footer>
+</body>
+</html>
