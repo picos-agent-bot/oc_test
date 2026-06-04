@@ -45,6 +45,7 @@ scene.add(dirLight);
 const world = new CANNON.World({
     gravity: new CANNON.Vec3(0, -9.82 * 4, 0), // Increased gravity for snappier feel
 });
+world.allowSleep = true;
 world.broadphase = new CANNON.SAPBroadphase(world);
 world.solver.iterations = 20;
 
@@ -279,10 +280,6 @@ createWall(new CANNON.Vec3(10, 0, 0), new CANNON.Quaternion().setFromEuler(0, -M
 
 
 window.addEventListener('click', rollDice);
-window.addEventListener('touchstart', (e) => {
-    if(e.cancelable) e.preventDefault();
-    rollDice();
-}, { passive: false });
 
 window.addEventListener('resize', () => {
     camera.aspect = window.innerWidth / window.innerHeight;
