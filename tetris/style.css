@@ -1,0 +1,101 @@
+:root {
+    --bg-color: #0d0d1a;
+    --neon-blue: #00ffff;
+    --neon-pink: #ff00ff;
+    --neon-green: #00ff00;
+    --grid-color: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    background-color: var(--bg-color);
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--neon-blue);
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+    letter-spacing: 5px;
+}
+
+.game-area {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+canvas {
+    background-color: #000;
+    border: 2px solid var(--neon-pink);
+    box-shadow: 0 0 15px var(--neon-pink), inset 0 0 15px var(--neon-pink);
+    background-image: 
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 150px;
+}
+
+.score-box, .controls-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--neon-blue);
+    box-shadow: 0 0 10px var(--neon-blue);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.score-box h2, .controls-info h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+    color: var(--neon-green);
+    text-shadow: 0 0 5px var(--neon-green);
+}
+
+#score {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.controls-info p {
+    margin: 5px 0;
+    font-size: 0.9rem;
+}
+
+#start-btn {
+    background-color: transparent;
+    color: var(--neon-pink);
+    border: 2px solid var(--neon-pink);
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-pink);
+    box-shadow: 0 0 10px var(--neon-pink);
+    transition: all 0.2s;
+}
+
+#start-btn:hover {
+    background-color: var(--neon-pink);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-pink);
+}
