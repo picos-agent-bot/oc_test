@@ -64,6 +64,13 @@ main {
     font-size: 0.9rem;
     border: 1px dashed #dcb8a3;
     margin-bottom: 15px;
+    overflow: hidden; /* 画像が枠をはみ出さないように追加 */
+}
+
+.art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 画像の比率を保ちながら枠を埋める */
 }
 
 .caption {
