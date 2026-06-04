@@ -1,0 +1,104 @@
+/* 絵本の世界観を演出するスタイル */
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: #fdfaf6; /* 温かみのあるクリーム色の背景 */
+    color: #5c4a45; /* 優しいこげ茶色のテキスト */
+    margin: 0;
+    padding: 0;
+    /* うっすらとしたドット柄で画用紙っぽさを演出 */
+    background-image: radial-gradient(#f0e4d4 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+header {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: rgba(253, 250, 246, 0.8);
+    border-bottom: 3px dashed #dcb8a3; /* 絵本の縫い目のような点線 */
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #d18a70; /* 柔らかいテラコッタ色 */
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(209, 138, 112, 0.2);
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px 20px;
+}
+
+/* ギャラリー（額縁風） */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.frame {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.06);
+    border: 2px solid #ecd8c6;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.frame:hover {
+    transform: translateY(-5px) rotate(2deg); /* ホバーで少し傾く遊び心 */
+}
+
+/* イラストが入るプレースホルダー */
+.art {
+    background-color: #f4ece4;
+    height: 220px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a89486;
+    font-size: 0.9rem;
+    border: 1px dashed #dcb8a3;
+    margin-bottom: 15px;
+}
+
+.caption {
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0;
+    color: #8fa082; /* 優しいセージグリーン */
+}
+
+/* ごあいさつセクション */
+.about {
+    text-align: center;
+    background: #ffffff;
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 2px dashed #ecd8c6;
+}
+
+.about h2 {
+    color: #d18a70;
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+.about p {
+    line-height: 2.2;
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    color: #a89486;
+    background-color: rgba(253, 250, 246, 0.9);
+    border-top: 3px dashed #dcb8a3;
+}
