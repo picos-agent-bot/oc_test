@@ -1,0 +1,59 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: 'npm'
+          cache-dependency-path: 'nextui-admin-sample/package-lock.json'
+
+      - name: Install dependencies
+        working-directory: ./nextui-admin-sample
+        run: npm ci
+
+      - name: Build Next.js
+        working-directory: ./nextui-admin-sample
+        run: npm run build
+
+      - name: Prepare Deployment Directory
+        run: |
+          mkdir -p _site
+          rsync -av --exclude='.git' --exclude='.github' --exclude='nextui-admin-sample' --exclude='_site' ./ _site/
+          mkdir -p _site/nextui-admin-sample
+          cp -a nextui-admin-sample/out/. _site/nextui-admin-sample/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
