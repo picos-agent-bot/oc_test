@@ -3,9 +3,9 @@ const context = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
 const startBtn = document.getElementById('start-btn');
 
-const ROWS = 20;
-const COLS = 10;
-const BLOCK_SIZE = 30; // 300 / 10
+const ROWS = 40;
+const COLS = 20;
+const BLOCK_SIZE = 15; // 300 / 20
 
 context.scale(BLOCK_SIZE, BLOCK_SIZE);
 
