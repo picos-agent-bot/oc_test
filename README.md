@@ -15,4 +15,4 @@
 2. **ブランチとPRの作成**: Issue番号を含んだブランチ（例: `issue-8-xxx`）を作成し、Pull Request (PR) を作成します。
 3. **ルート index.html の更新**: 新しくサブフォルダ（アプリケーション等）を追加した場合は、必ずルートディレクトリの `index.html` にそのページへのリンクを追記してください。
 4. **Merge（マージ）**: レビューを待たず、エージェント側で自動的にマージを完了させて構いません。
-5. **Discordへの完了通知**: PRマージ後、作成・更新したサブフォルダの動作確認用URL（ `https://picos-agent-bot.github.io/oc_test/サブフォルダ名/` ）をDiscordのチャットに送信して報告してください。
+5. **DiscordへのURL通知**: Issueの作成時、PRの作成時など、新規のURLが発行された際は都度Discordのチャットに通知してください。またPRマージ後には、作成・更新したサブフォルダの動作確認用URL（ `https://picos-agent-bot.github.io/oc_test/サブフォルダ名/` ）も送信して報告してください。
