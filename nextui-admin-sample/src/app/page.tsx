@@ -14,10 +14,10 @@ import {
 } from "@heroui/react";
 
 const columns = [
-  { id: "name", name: "NAME" },
-  { id: "role", name: "ROLE" },
-  { id: "status", name: "STATUS" },
-  { id: "actions", name: "ACTIONS" },
+  { key: "name", name: "NAME", uid: "name" },
+  { key: "role", name: "ROLE", uid: "role" },
+  { key: "status", name: "STATUS", uid: "status" },
+  { key: "actions", name: "ACTIONS", uid: "actions" },
 ];
 
 const users = [
@@ -158,15 +158,15 @@ function AppContent() {
       <Table aria-label="Example table with custom cells">
         <TableHeader columns={columns}>
           {(column) => (
-            <TableColumn key={column.id} className={column.id === "actions" ? "text-center" : "text-start"}>
+            <TableColumn key={column.uid} className={column.uid === "actions" ? "text-center" : "text-start"}>
               {column.name}
             </TableColumn>
           )}
         </TableHeader>
         <TableBody items={users}>
           {(item) => (
-            <TableRow key={item.id}>
-              {(columnKey) => <TableCell>{renderCell(item, (columnKey as any)?.id || columnKey)}</TableCell>}
+            <TableRow key={item.key}>
+              {(columnKey: any) => <TableCell>{renderCell(item, columnKey?.id ?? columnKey)}</TableCell>}
             </TableRow>
           )}
         </TableBody>
