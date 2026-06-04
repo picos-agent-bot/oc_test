@@ -144,6 +144,43 @@
             background-color: var(--accent-green);
         }
 
+        /* Instagram Grid */
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .ig-item {
+            aspect-ratio: 1 / 1;
+            background-color: var(--accent-pink);
+            border: 3px solid var(--text-color);
+            border-radius: 10px 30px 10px 30px / 30px 10px 30px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: transform 0.2s;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+        }
+
+        .ig-item:nth-child(2) {
+            background-color: var(--accent-yellow);
+            border-radius: 30px 10px 30px 10px / 10px 30px 10px 30px;
+        }
+
+        .ig-item:nth-child(3) {
+            background-color: var(--accent-blue);
+            border-radius: 20px 20px 10px 10px / 10px 10px 20px 20px;
+        }
+
+        .ig-item:hover {
+            transform: scale(1.05) rotate(-2deg);
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
@@ -221,6 +258,27 @@
                     <p>温かみのある風合いの紙に印刷しました。</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Instagram -->
+        <section id="instagram">
+            <h2>Instagram</h2>
+            <p style="text-align: center;">最新の作品はこちら（<a href="https://www.instagram.com/nalab3d/?locale=ja_JP" target="_blank" rel="noopener noreferrer">@nalab3d</a>）</p>
+            <div class="ig-grid">
+                <a href="https://www.instagram.com/nalab3d/?locale=ja_JP" target="_blank" rel="noopener noreferrer" class="ig-item">
+                    <span>最新の投稿 1<br>📷</span>
+                </a>
+                <a href="https://www.instagram.com/nalab3d/?locale=ja_JP" target="_blank" rel="noopener noreferrer" class="ig-item">
+                    <span>最新の投稿 2<br>📷</span>
+                </a>
+                <a href="https://www.instagram.com/nalab3d/?locale=ja_JP" target="_blank" rel="noopener noreferrer" class="ig-item">
+                    <span>最新の投稿 3<br>📷</span>
+                </a>
+            </div>
+            <p style="font-size: 0.8rem; text-align: center; margin-top: 15px; color: #888;">
+                ※サイトの仕組み上、最新投稿を自動取得して表示するには外部ウィジェット（Elfsightなど）の導入が必要です。<br>
+                現在はInstagramへのリンク付きモックアップ枠として実装しています。
+            </p>
         </section>
 
         <!-- 連絡先 -->
